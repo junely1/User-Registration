@@ -4,8 +4,8 @@ var bodyParser=require('body-parser');
 var connection = require('./config');
 var app = express();
 
-var authenticateController=require('./controllers/authenticate-controller');
-var registerController=require('./controllers/register-controller');
+var authenticateController=require('authenticate-controller');
+var registerController=require('register-controller');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -23,6 +23,6 @@ app.post('/api/register',registerController.register);
 app.post('/api/authenticate',authenticateController.authenticate);
 
 console.log(authenticateController);
-app.post('/controllers/register-controller', registerController.register);
-app.post('/controllers/authenticate-controller', authenticateController.authenticate);
+app.post('register-controller', registerController.register);
+app.post('authenticate-controller', authenticateController.authenticate);
 app.listen(8012);
